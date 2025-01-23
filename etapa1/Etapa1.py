@@ -15,7 +15,7 @@ def validar_rango_fechas(fecha_inicio, fecha_fin):
     return True
 
 def validar_numeros_enteros(numero):
-    if re.match("^[0-9]*$", numero):
+    if re.match("^[0-9]+$", numero):
         return True
     return False
 
