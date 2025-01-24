@@ -182,7 +182,7 @@ def planeacionRegistro(nombre, identificacion):
             "nombre": nombre,
             "identificación": identificacion,
             "tipo de actividad": tipo_act,
-            "descripción de actividad": descripción_actividad,
+            "descripción de actividad": descripcion_actividad,
             "numero de proyecto": num_proyecto,
             "horas":horas,
             "fecha":fecha,
@@ -265,8 +265,8 @@ while registro_usu:
                 
                      
                 while True:
-                    descripción_actividad=input("Descripción de la actividad que realizó: ")
-                    if validar_texto(descripción_actividad):
+                    descripcion_actividad=input("Descripción de la actividad que realizó: ")
+                    if validar_texto(descripcion_actividad):
                         break
                     else:
                         print("La descripcion ingresada no es válido. Asegúrate de que solo contenga letras y espacios.")
@@ -334,7 +334,7 @@ while registro_usu:
                     "nombre": nombre,
                     "identificación": identificacion,
                     "tipo de actividad": tipo_act,
-                    "descripción de actividad": descripción_actividad,
+                    "descripción de actividad": descripcion_actividad,
                     "numero de proyecto": num_proyecto,
                     "horas":horas,
                     "fecha":fecha,
