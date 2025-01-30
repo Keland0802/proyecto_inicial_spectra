@@ -1,6 +1,9 @@
-from etapa2.Sistema import Sistema
+
+from etapa3.MasterModel import MasterModel
 
 
-if __name__ == "__main__":
-    sistema = Sistema()
-    sistema.iniciar()
+result = MasterModel().consult("SELECT * FROM tipo_actividades")
+if result is not None:
+    print(result)
+else:
+    print("No data found or an error occurred.")
