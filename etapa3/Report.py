@@ -137,7 +137,7 @@ class Report:
         print("\n")
         print("****************************************************************************INFORME DE ACTIVIDADES DEL DÍA******************************************************************")
         query = """SELECT 
-                p.id_planeación,
+                p.id_planeacion,
                 p.cedula_usu,
                 ta.nombre_tipo_actividad AS actividad,
                 p.descripcion_act,
@@ -146,7 +146,7 @@ class Report:
                 p.fecha,
                 p.comentario
             FROM 
-                planeación_actividades p
+                planeacion_actividades p
             LEFT JOIN 
                 tipo_actividades ta 
             ON 
@@ -208,10 +208,9 @@ class Report:
         params = (search,)
         print("\n")
         regist = self.model.consult(query, params)
-        print(tabulate(regist, headers=self.headersRegist, tablefmt="grid"))
-        print("\n")
+       
         query2 = """SELECT 
-                    p.id_planeación,
+                    p.id_planeacion,
                     p.cedula_usu,
                     ta.nombre_tipo_actividad AS actividad,
                     p.descripcion_act,
@@ -220,14 +219,33 @@ class Report:
                     p.fecha,
                     p.comentario
                 FROM 
-                    planeación_actividades p
+                    planeacion_actividades p
                 LEFT JOIN 
                     tipo_actividades ta 
                 ON 
                     p.actividad = ta.id_tipo_actividad
                 WHERE p.cedula_usu=%s"""
         plan = self.model.consult(query2, params)
-        print(tabulate(plan, headers=self.headersPlan, tablefmt="grid"))
+        
+        if not regist and not plan:
+            print("No se encontraron registros para el número de cédula ingresado.")
+            return
+        
+        else: 
+            
+            if not regist:
+                print("No se encontraron registros de actividades para el número de cédula ingresado.")
+            else:
+                print(tabulate(regist, headers=self.headersRegist, tablefmt="grid"))
+            print("\n")
+            
+            if not plan:
+                print("No se encontraron registros de planeación de actividades para el número de cédula ingresado.")
+            else:
+                print(tabulate(plan, headers=self.headersPlan, tablefmt="grid"))     
+        
+                
+        
 
     def getReportDate(self):
         """
@@ -285,10 +303,9 @@ class Report:
                     WHERE fecha BETWEEN %s AND %s"""
         params = (fecha_inicio, fecha_fin)
         regist = self.model.consult(query, params)
-        print(tabulate(regist, headers=self.headersRegist, tablefmt="grid"))
-        print("\n")
+       
         query2 = """SELECT 
-                        p.id_planeación,
+                        p.id_planeacion,
                         p.cedula_usu,
                         ta.nombre_tipo_actividad AS actividad,
                         p.descripcion_act,
@@ -297,12 +314,27 @@ class Report:
                         p.fecha,
                         p.comentario
                     FROM 
-                        planeación_actividades p
+                        planeacion_actividades p
                     LEFT JOIN 
                         tipo_actividades ta 
                     ON 
                         p.actividad = ta.id_tipo_actividad
                     WHERE fecha BETWEEN %s AND %s"""
         plan = self.model.consult(query2, params)
-        print(tabulate(plan, headers=self.headersPlan, tablefmt="grid"))
-        print("\n")
+       
+        if not regist and not plan:
+            print("No se encontraron registros para el rango de fecha ingresado.")
+            return
+        
+        else: 
+            
+            if not regist:
+                print("No se encontraron registros de actividades para el rango de fecha ingresado.")
+            else:
+                print(tabulate(regist, headers=self.headersRegist, tablefmt="grid"))
+            print("\n")
+            
+            if not plan:
+                print("No se encontraron registros de planeación de actividades para el rango de fecha ingresado.")
+            else:
+                print(tabulate(plan, headers=self.headersPlan, tablefmt="grid"))     

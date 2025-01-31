@@ -50,6 +50,7 @@ class System:
                         self.options()
                     else:
                         print("Usuario no registrado. Por favor regístrese o intente nuevamente.")
+                        break
                 
             else:
                 print("Opción inválida. Intente nuevamente.")
