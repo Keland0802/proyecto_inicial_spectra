@@ -9,7 +9,10 @@ app = FastAPI()
 # Configurar la carpeta de plantillas
 templates = Jinja2Templates(directory="templates")
 
+
 # Ruta para mostrar el login
+
+
 @app.get("/", response_class=HTMLResponse)
-async def login_page(request: Request):
-    return templates.TemplateResponse("login.html", {"request": request})
+async def home(request: Request):
+    return templates.TemplateResponse("register.html", {"request": request})
