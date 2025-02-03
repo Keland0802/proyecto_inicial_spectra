@@ -1,0 +1,65 @@
+{% extends "base.html" %} {% block title %}Inicio{% endblock %} {% block content
+%}
+
+<div class="bg-white shadow-lg rounded-2xl p-6 w-full">
+  <h2 class="text-2xl font-bold text-gray-700 text-center mb-4">Registro Actividades Realizadas</h2>
+
+  <form action="#" method="POST" class="space-y-4">
+    <div class="grid grid-cols-3 gap-4">
+      <div class="...">
+        <div class="col-span-3">
+          <label for="opcion" class="block text-sm font-medium text-gray-700">Selecciona una opción:</label>
+          <select id="opcion" name="opcion"
+            class="mt-1 block w-full border border-gray-300 rounded-lg p-2 focus:ring-blue-500 focus:border-blue-500">
+            <option value="">-- Seleccionar --</option>
+            <option value="op1">Back</option>
+            <option value="op2">Front</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="...">
+        <div class="col-span-3">
+          <label for="comentarios" class="block text-sm font-medium text-gray-700">Comentarios:</label>
+          <textarea id="comentarios" name="comentarios" rows="3"
+            class="mt-1 block w-full border border-gray-300 rounded-lg p-2 focus:ring-blue-500 focus:border-blue-500"></textarea>
+        </div>
+      </div>
+      <div class="...">
+        <div>
+          <label for="telefono" class="block text-sm font-medium text-gray-700">Teléfono:</label>
+          <input type="text" id="telefono" name="telefono"
+            class="mt-1 block w-full  border border-gray-300 rounded-lg p-2 focus:ring-blue-500 focus:border-blue-500" />
+        </div>
+      </div>
+      <div class="...">
+        <div>
+          <label for="telefono" class="block text-sm font-medium text-gray-700">Teléfono:</label>
+          <input type="text" id="telefono" name="telefono"
+            class="mt-1 block w-full  border border-gray-300 rounded-lg p-2 focus:ring-blue-500 focus:border-blue-500" />
+        </div>
+      </div>
+      <div class="...">
+        <div>
+          <label for="fecha" class="block text-sm font-medium text-gray-700">Fecha:</label>
+          <input type="date" id="fecha" name="fecha"
+            class="mt-1 block w-full  border border-gray-300 rounded-lg p-2 focus:ring-blue-500 focus:border-blue-500" />
+        </div>
+      </div>
+
+      <div class="...">
+
+        <div class="col-span-3">
+          <label for="comentarios" class="block text-sm font-medium text-gray-700">Comentarios:</label>
+          <textarea id="comentarios" name="comentarios" rows="3"
+            class="mt-1 block w-full  border border-gray-300 rounded-lg p-2 focus:ring-blue-500 focus:border-blue-500"></textarea>
+        </div>
+      </div>
+
+
+      <!-- Select -->
+    </div>
+  </form>
+</div>
+
+{% endblock %}

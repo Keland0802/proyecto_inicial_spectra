@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html class="bg-purple-100">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <link href="../static/css/Login.css" rel="stylesheet" />
+  </head>
+  <body class="h-full">
+    <!--
+  This example requires updating your template:
+
+  ```
+  <html class="h-full bg-white">
+
+  <body class="h-full">
+  ```
+-->
+    <div class="grid justify-items-center m-24">
+      <div
+        class="flex lex-col justify-center px-6 py-12 lg:px-8 w-150 rounded-3xl border border-gray-200 bg-purple-50"
+      >
+        <div class="sm:mx-auto sm:w-full sm:max-w-sm">
+          <svg
+            class="mx-auto h-10 w-auto text-purple-500 dark:text-white mt-20"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            fill="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M9 4a4 4 0 1 0 0 8 4 4 0 0 0 0-8Zm-2 9a4 4 0 0 0-4 4v1a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-1a4 4 0 0 0-4-4H7Zm8-1a1 1 0 0 1 1-1h1v-1a1 1 0 1 1 2 0v1h1a1 1 0 1 1 0 2h-1v1a1 1 0 1 1-2 0v-1h-1a1 1 0 0 1-1-1Z"
+              clip-rule="evenodd"
+            />
+          </svg>
+
+          <h2
+            class=" text-center text-2xl/9 font-bold tracking-tight text-gray-900"
+          >
+            Registrarme
+          </h2>
+        </div>
+
+        <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+          <form class="space-y-6" action="#" method="POST">
+            <div>
+              <div class="flex items-center justify-between">
+                <label for="" class="block text-sm/6 font-medium text-gray-900"
+                  >Ingrese su número de documento</label>
+              </div>
+              <div class="mt-2">
+                <input
+                  type="password"
+                  name="password"
+                  id="password"
+                  autocomplete="current-password"
+                  required
+                  class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
+                />
+              </div>
+              <div class="flex items-center justify-between">
+                <label for="" class="mt-10 text-sm/6 font-medium text-gray-900"
+                  >Ingrese su nombre completo</label>
+              </div>
+              <div class="mt-2">
+                <input
+                  type="password"
+                  name="password"
+                  id="password"
+                  autocomplete="current-password"
+                  required
+                  class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
+                />
+              </div>
+            </div>
+
+            <div>
+              <button
+                type="submit"
+                class="flex w-full justify-center rounded-md bg-purple-500 px-3 py-1.5 text-sm/6 font-semibold text-white shadow-xs hover:bg-purple-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-600"
+              >
+                Create User
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
