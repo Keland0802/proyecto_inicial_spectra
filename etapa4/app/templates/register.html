@@ -1,65 +1,95 @@
-{% extends "base.html" %} {% block title %}Inicio{% endblock %} {% block content
-%}
+{% extends "base.html" %}
 
-<div class="bg-white shadow-lg rounded-2xl p-6 w-full">
-  <h2 class="text-2xl font-bold text-gray-700 text-center mb-4">Registro Actividades Realizadas</h2>
+{% block title %}Inicio{% endblock %}
 
-  <form action="#" method="POST" class="space-y-4">
-    <div class="grid grid-cols-3 gap-4">
-      <div class="...">
-        <div class="col-span-3">
-          <label for="opcion" class="block text-sm font-medium text-gray-700">Selecciona una opción:</label>
-          <select id="opcion" name="opcion"
-            class="mt-1 block w-full border border-gray-300 rounded-lg p-2 focus:ring-blue-500 focus:border-blue-500">
-            <option value="">-- Seleccionar --</option>
-            <option value="op1">Back</option>
-            <option value="op2">Front</option>
-          </select>
+{% block content %}
+<div class=" m-15 ml-80  h-full  ">
+  <div class="p-4 border-gray-200 border-dashed rounded-lg dark:border-gray-700 mt-10 h-100 ">
+
+    <div class="bg-white shadow-lg rounded-2xl p-6 w-full max-w-4xl mx-auto">
+      <h2 class="text-2xl font-bold text-gray-700 text-center mb-4">
+        Registro Actividades Realizadas
+      </h2>
+
+      <form action="/registerAct" method="POST" class="space-y-4">
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+          <!-- Selección -->
+          <div>
+            <label for="type_act" class="block text-sm font-medium text-gray-700">
+              Selecciona un tipo de actividad realizada:<span class="text-red-500">*</span>
+
+            </label>
+            <select id="type_act" name="type_act" required
+              class="mt-1 block w-full border border-gray-300 rounded-lg p-2 focus:ring-blue-500 focus:border-blue-500">
+              <option value="">Tipo de actividad:</option>
+              {% for actividad in actividades %}
+              <option value="{{ actividad[0] }}">{{ actividad[1]}}</option>
+              {% endfor %}
+            </select>
+          </div>
+
+          <!-- Comentarios -->
+          <div class="sm:col-span-2">
+            <label for="description_act" class="block text-sm font-medium text-gray-700">
+              Descripción de la actividad realizada:<span class="text-red-500">*</span>
+
+            </label>
+            <textarea id="description_act" name="description_act" rows="3"
+              class="mt-1 block w-full border border-gray-300 rounded-lg p-2 focus:ring-blue-500 focus:border-blue-500"
+              required></textarea>
+          </div>
+
+          <!-- Teléfono -->
+          <div>
+            <label for="num_proyect" class="block text-sm font-medium text-gray-700">
+              Número de proyecto:
+            </label>
+            <input type="text" id="num_proyect" name="num_proyect"
+              class="mt-1 block w-full border border-gray-300 rounded-lg p-2 focus:ring-blue-500 focus:border-blue-500"
+              pattern="^[0-9]{6,10}" title="Recuerda ingresar solo números y de 5 a 10 dígitos" />
+          </div>
+
+          <div>
+            <label for="hours" class="block text-sm font-medium text-gray-700">
+              Horas dedicadas:<span class="text-red-500">*</span>
+
+            </label>
+            <input type="text" id="hours" name="hours"
+              class="mt-1 block w-full border border-gray-300 rounded-lg p-2 focus:ring-blue-500 focus:border-blue-500"
+              required  pattern="^[0-9]" title="Recuerda ingresar solo números" />
+          </div>
+
+          <!-- Fecha -->
+          <div>
+            <label for="date" class="block text-sm font-medium text-gray-700">
+              Fecha de realización:<span class="text-red-500">*</span>
+
+            </label>
+            <input type="date" id="date" name="date"
+              class="mt-1 block w-full border border-gray-300 rounded-lg p-2 focus:ring-blue-500 focus:border-blue-500"
+              required />
+          </div>
         </div>
-      </div>
 
-      <div class="...">
-        <div class="col-span-3">
-          <label for="comentarios" class="block text-sm font-medium text-gray-700">Comentarios:</label>
-          <textarea id="comentarios" name="comentarios" rows="3"
+        <div class="sm:col-span-2">
+          <label for="comment" class="block text-sm font-medium text-gray-700">
+            Bloqueos o Comentarios para la realización de la actividad:
+          </label>
+          <textarea id="comment" name="comment" rows="3"
             class="mt-1 block w-full border border-gray-300 rounded-lg p-2 focus:ring-blue-500 focus:border-blue-500"></textarea>
         </div>
-      </div>
-      <div class="...">
-        <div>
-          <label for="telefono" class="block text-sm font-medium text-gray-700">Teléfono:</label>
-          <input type="text" id="telefono" name="telefono"
-            class="mt-1 block w-full  border border-gray-300 rounded-lg p-2 focus:ring-blue-500 focus:border-blue-500" />
-        </div>
-      </div>
-      <div class="...">
-        <div>
-          <label for="telefono" class="block text-sm font-medium text-gray-700">Teléfono:</label>
-          <input type="text" id="telefono" name="telefono"
-            class="mt-1 block w-full  border border-gray-300 rounded-lg p-2 focus:ring-blue-500 focus:border-blue-500" />
-        </div>
-      </div>
-      <div class="...">
-        <div>
-          <label for="fecha" class="block text-sm font-medium text-gray-700">Fecha:</label>
-          <input type="date" id="fecha" name="fecha"
-            class="mt-1 block w-full  border border-gray-300 rounded-lg p-2 focus:ring-blue-500 focus:border-blue-500" />
-        </div>
-      </div>
-
-      <div class="...">
-
-        <div class="col-span-3">
-          <label for="comentarios" class="block text-sm font-medium text-gray-700">Comentarios:</label>
-          <textarea id="comentarios" name="comentarios" rows="3"
-            class="mt-1 block w-full  border border-gray-300 rounded-lg p-2 focus:ring-blue-500 focus:border-blue-500"></textarea>
-        </div>
-      </div>
 
 
-      <!-- Select -->
+        <!-- Botón de Envío -->
+        <div class="text-center">
+          <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition">
+            Enviar
+          </button>
+        </div>
+      </form>
     </div>
-  </form>
+  </div>
 </div>
+
 
 {% endblock %}

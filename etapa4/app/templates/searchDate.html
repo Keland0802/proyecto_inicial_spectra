@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class=" m-15 ml-80  h-full  ">
+    <div class="p-4 border-gray-200 border-dashed rounded-lg dark:border-gray-700 mt-10 h-100 ">
+
+        <div class="p-4 ">
+            <h2 class="text-lg font-bold">Filtrar por rango de fechas</h2>
+            <form method="get" action="/filterDate">
+                <label for="start_date">Fecha Inicio:</label>
+                <input type="date" id="start_date" name="start_date" class="border rounded p-1" required>
+
+                <label for="end_date">Fecha Fin:</label>
+                <input type="date" id="end_date" name="end_date" class="border rounded p-1" required>
+
+                <button type="submit" class="px-4 py-2 bg-blue-500 text-white rounded">Buscar</button>
+            </form>
+
+        </div>
+    </div>
+
+</div>
+{% endblock %}

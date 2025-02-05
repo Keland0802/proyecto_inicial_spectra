@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+
+{% block title %}Inicio{% endblock %}
+
+{% block content %}
+<div class=" m-15 ml-80  h-full  ">
+  <div class="p-4 border-gray-200 border-dashed rounded-lg dark:border-gray-700 mt-10 h-100 ">
+
+    <div class="bg-white shadow-lg rounded-2xl p-6 w-full max-w-4xl mx-auto">
+      <h2 class="text-2xl font-bold text-gray-700 text-center mb-4">
+        Planeación Actividad del día
+      </h2>
+
+      <form action="/registerPlan" method="POST" class="space-y-4">
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-4">
+          <!-- Selección -->
+          <div class="sm:col-span-2">
+            <label for="type_act" class="block text-sm font-medium text-gray-700">
+              Selecciona un tipo de actividad realizar:<span class="text-red-500">*</span>
+
+            </label>
+            <select id="type_act" name="type_act" required
+              class="mt-1 block w-full border border-gray-300 rounded-lg p-2 focus:ring-blue-500 focus:border-blue-500">
+              <option value="">Tipo de actividad:</option>
+              {% for actividad in actividades %}
+              <option value="{{ actividad[0] }}">{{ actividad[1]}}</option>
+              {% endfor %}
+            </select>
+          </div>
+
+          <!-- Comentarios -->
+          <div class="sm:col-span-2">
+            <label for="description_act" class="block text-sm font-medium text-gray-700">
+              Descripción de la actividad a realizar:<span class="text-red-500">*</span>
+
+            </label>
+            <textarea id="description_act" name="description_act" rows="3"
+              class="mt-1 block w-full border border-gray-300 rounded-lg p-2 focus:ring-blue-500 focus:border-blue-500"
+              required  ></textarea>
+          </div>
+
+          <!-- Teléfono -->
+          <div>
+            <label for="num_proyect" class="block text-sm font-medium text-gray-700">
+              Número de proyecto:
+            </label>
+            <input type="text" id="num_proyect" name="num_proyect"
+              class="mt-1 block w-full border border-gray-300 rounded-lg p-2 focus:ring-blue-500 focus:border-blue-500"
+              pattern="^[0-9]{6,10}" title="Recuerda ingresar solo números y de 5 a 10 dígitos" />
+          </div>
+
+          <div>
+            <label for="hours" class="block text-sm font-medium text-gray-700">
+              Horas a dedicar:<span class="text-red-500">*</span>
+
+            </label>
+            <input type="text" id="hours" name="hours"
+              class="mt-1 block w-full border border-gray-300 rounded-lg p-2 focus:ring-blue-500 focus:border-blue-500"
+              required  pattern="^[0-9]" title="Recuerda ingresar solo números "  />
+          </div>
+
+        </div>
+
+
+
+
+        <!-- Botón de Envío -->
+        <div class="text-center">
+          <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition">
+            Enviar
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+{% endblock %}
