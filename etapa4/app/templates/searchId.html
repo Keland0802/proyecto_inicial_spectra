@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}Inicio{% endblock %}
+
+{% block content %}
+<div class=" m-15 ml-80  h-full  ">
+    <div class="p-4 border-gray-200 border-dashed rounded-lg dark:border-gray-700 mt-10 h-100 ">
+
+        <form action="/filterId" method="get" class="">
+            <input type="text" name="id" placeholder="Ingrese su número de identificación" required
+                class="block w-100 p-2 border rounded-md" required pattern="^[0-9]{6,10}" title="Recuerda ingresar solo números y de  a 10 dígitos"/>
+            <button type="submit" class="mt-2 w-full bg-blue-500 text-white p-2 rounded-md hover:bg-blue-700" >
+                Buscar
+            </button>
+        </form>
+    </div>
+</div>
+
+
+{% endblock %}

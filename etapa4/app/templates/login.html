@@ -1,11 +1,13 @@
 <!DOCTYPE html>
-<html class=" bg-purple-100">
+<html >
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login</title>
     <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
     <link href="../static/css/Login.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
   </head>
   <body class="h-full">
     <!--
@@ -45,7 +47,7 @@
         </div>
 
         <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-          <form class="space-y-6" action="#" method="POST">
+          <form class="space-y-6" action="/login" method="POST">
             <div>
               <div class="flex items-center justify-between">
                 <label for="" class="block text-sm/6 font-medium text-gray-900"
@@ -54,13 +56,13 @@
               </div>
               <div class="mt-2">
                 <input
-                  type="password"
-                  name="password"
+                  type="text"
+                  name="id"
                   id="password"
                   autocomplete="current-password"
                   required
                   class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
-                />
+                pattern="^[0-9]{6,10}" title="Recuerda ingresar solo números y de 5 a 10 dígitos"/>
               </div>
             </div>
 
@@ -71,16 +73,37 @@
                 Sign in
               </button>
             </div>
+          
+          </form>
+
+          <form action="/registerUser">
             <div>
               <button
                 type="submit"
-                class="flex w-full justify-center rounded-md bg-purple-500 px-3 py-1.5 text-sm/6 font-semibold text-white shadow-xs hover:bg-purple-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-600">
+                class="flex mt-5 w-full justify-center rounded-md bg-purple-500 px-3 py-1.5 text-sm/6 font-semibold text-white shadow-xs hover:bg-purple-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-600">
                 Sing up
               </button>
             </div>
+
           </form>
         </div>
       </div>
     </div>
   </body>
+  {% if request.session.flash_message %}
+<script>
+    Swal.fire({
+        title: "{{ request.session.flash_message.text }}",
+        icon: "{{ request.session.flash_message.type }}",
+        confirmButtonText: "Aceptar"
+    }).then(() => {
+        // Eliminar el mensaje de la sesión sin que el usuario tenga que recargar
+        fetch("/clear_flash_message").then(() => {
+            console.log("Mensaje eliminado de la sesión.");
+        });
+    });
+</script>
+{% endif %}
+
+
 </html>
